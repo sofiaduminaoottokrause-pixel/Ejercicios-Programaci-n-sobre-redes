@@ -1,0 +1,21 @@
+public class Rotaciones {
+
+    public static void aplicarRotaciones(int[] nums, int[][] rot) {
+
+        for (int i = 0; i < rot.length; i++) {
+
+            int inicio = rot[i][0];
+            int fin = rot[i][1];
+
+            while (inicio < fin) {
+
+                int temp = nums[inicio];
+                nums[inicio] = nums[fin];
+                nums[fin] = temp;
+
+                inicio++;
+                fin--;
+            }
+        }
+    }
+}
