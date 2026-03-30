@@ -1,0 +1,25 @@
+public class SumaBaseK {
+
+    public static int[] sumar(int[] A, int[] B, int K) {
+
+        int n = A.length;
+        int[] res = new int[n];
+
+        int carry = 0;
+
+        for (int i = n - 1; i >= 0; i--) {
+
+            int suma = A[i] + B[i] + carry;
+
+            if (suma >= K) {
+                res[i] = suma - K;
+                carry = 1;
+            } else {
+                res[i] = suma;
+                carry = 0;
+            }
+        }
+
+        return res;
+    }
+}
