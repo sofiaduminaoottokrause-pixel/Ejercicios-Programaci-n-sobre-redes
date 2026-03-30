@@ -1,0 +1,43 @@
+public class Espiral {
+
+    public static boolean esEspiral(int[][] m) {
+
+        int n = m.length;
+        int esperado = 1;
+
+        int filaInicio = 0, filaFin = n - 1;
+        int colInicio = 0, colFin = n - 1;
+
+        while (filaInicio <= filaFin && colInicio <= colFin) {
+
+           
+            for (int j = colInicio; j <= colFin; j++) {
+                if (m[filaInicio][j] != esperado++) return false;
+            }
+            filaInicio++;
+
+           
+            for (int i = filaInicio; i <= filaFin; i++) {
+                if (m[i][colFin] != esperado++) return false;
+            }
+            colFin--;
+
+            
+            if (filaInicio <= filaFin) {
+                for (int j = colFin; j >= colInicio; j--) {
+                    if (m[filaFin][j] != esperado++) return false;
+                }
+                filaFin--;
+            }
+
+                     if (colInicio <= colFin) {
+                for (int i = filaFin; i >= filaInicio; i--) {
+                    if (m[i][colInicio] != esperado++) return false;
+                }
+                colInicio++;
+            }
+        }
+
+        return true;
+    }
+}
