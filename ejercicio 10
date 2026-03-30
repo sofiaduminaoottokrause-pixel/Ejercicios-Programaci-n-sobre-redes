@@ -1,0 +1,31 @@
+public class SecuenciaDobles {
+
+    public static int maxLongitud(int[] arr) {
+
+        int max = 0;
+        int actual = 0;
+
+        int i = 0;
+
+        while (i < arr.length - 1) {
+
+            if (arr[i] == arr[i + 1]) {
+                actual += 2;
+                i += 2; // salto el par
+            } else {
+                if (actual > max) {
+                    max = actual;
+                }
+                actual = 0;
+                i++;
+            }
+        }
+
+        // por si la mejor secuencia termina al final
+        if (actual > max) {
+            max = actual;
+        }
+
+        return max;
+    }
+}
