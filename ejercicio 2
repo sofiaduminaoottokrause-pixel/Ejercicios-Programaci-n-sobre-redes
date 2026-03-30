@@ -1,0 +1,35 @@
+public class SecuenciaCircular {
+
+    public static int maxSecuencia(int[] arr) {
+
+        int max = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+
+            int actual = arr[i];
+            int contador = 1;
+
+            boolean encontrado = true;
+
+            while (encontrado) {
+                encontrado = false;
+
+                for (int j = 0; j < arr.length; j++) {
+
+                    if (arr[j] == actual + 1) {
+                        actual = arr[j];
+                        contador++;
+                        encontrado = true;
+                        break;
+                    }
+                }
+            }
+
+            if (contador > max) {
+                max = contador;
+            }
+        }
+
+        return max;
+    }
+}
