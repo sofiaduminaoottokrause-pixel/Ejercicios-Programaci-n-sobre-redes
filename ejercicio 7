@@ -1,0 +1,56 @@
+public class Submarinos {
+
+    public static int contar(boolean[][][] c) {
+
+        int x = c.length;
+        int y = c[0].length;
+        int z = c[0][0].length;
+
+        int count = 0;
+
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                for (int k = 0; k < z; k++) {
+
+                    if (c[i][j][k]) {
+
+                        // eje X
+                        if (i == 0 || !c[i - 1][j][k]) {
+                            if (i + 2 < x &&
+                                c[i + 1][j][k] &&
+                                c[i + 2][j][k] &&
+                                (i + 3 >= x || !c[i + 3][j][k])) {
+
+                                count++;
+                            }
+                        }
+
+                        // eje Y
+                        if (j == 0 || !c[i][j - 1][k]) {
+                            if (j + 2 < y &&
+                                c[i][j + 1][k] &&
+                                c[i][j + 2][k] &&
+                                (j + 3 >= y || !c[i][j + 3][k])) {
+
+                                count++;
+                            }
+                        }
+
+                        // eje Z
+                        if (k == 0 || !c[i][j][k - 1]) {
+                            if (k + 2 < z &&
+                                c[i][j][k + 1] &&
+                                c[i][j][k + 2] &&
+                                (k + 3 >= z || !c[i][j][k + 3])) {
+
+                                count++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return count;
+    }
+}
