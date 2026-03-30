@@ -1,0 +1,23 @@
+public class MatrizRotada {
+
+    public static int[] buscar(int[][] m, int target) {
+
+        for (int i = 0; i < m.length; i++) {
+
+            int inicio = m[i][0];
+            int fin = m[i][m[i].length - 1];
+
+            if (target >= inicio && target <= fin) {
+
+                // buscar dentro de la fila
+                for (int j = 0; j < m[i].length; j++) {
+                    if (m[i][j] == target) {
+                        return new int[]{i, j};
+                    }
+                }
+            }
+        }
+
+        return new int[]{-1, -1};
+    }
+}
