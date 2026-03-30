@@ -1,0 +1,27 @@
+public class MaxPares {
+
+    public static int maxPares(String s, int k) {
+        int max = 0;
+
+        for (int i = 0; i <= s.length() - k; i++) {
+
+            int contador = 0;
+
+            for (int j = i; j < i + k; j++) {
+
+                char c = s.charAt(j);
+                int num = c - '0';
+
+                if (num % 2 == 0) {
+                    contador++;
+                }
+            }
+
+            if (contador > max) {
+                max = contador;
+            }
+        }
+
+        return max;
+    }
+}
