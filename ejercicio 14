@@ -1,0 +1,53 @@
+public class Barcos {
+
+    public static int contarBarcos(boolean[][] t) {
+
+        int filas = t.length;
+        int cols = t[0].length;
+        int contador = 0;
+
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < cols; j++) {
+
+                if (t[i][j]) {
+
+                    
+                    if (i == 0 || j == 0 || !t[i - 1][j - 1]) {
+
+                        int largo = 0;
+                        int x = i, y = j;
+
+                        while (x < filas && y < cols && t[x][y]) {
+                            largo++;
+                            x++;
+                            y++;
+                        }
+
+                        if (largo >= 2) {
+                            contador++;
+                        }
+                    }
+
+                    
+                    if (i == 0 || j == cols - 1 || !t[i - 1][j + 1]) {
+
+                        int largo = 0;
+                        int x = i, y = j;
+
+                        while (x < filas && y >= 0 && t[x][y]) {
+                            largo++;
+                            x++;
+                            y--;
+                        }
+
+                        if (largo >= 2) {
+                            contador++;
+                        }
+                    }
+                }
+            }
+        }
+
+        return contador;
+    }
+}
