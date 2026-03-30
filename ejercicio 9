@@ -1,0 +1,23 @@
+public class Conteo {
+
+    public static int[] contarMayoresIzq(int[] nums) {
+
+        int[] counts = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+
+            int contador = 0;
+
+            for (int j = 0; j < i; j++) {
+
+                if (nums[j] > nums[i]) {
+                    contador++;
+                }
+            }
+
+            counts[i] = contador;
+        }
+
+        return counts;
+    }
+}
